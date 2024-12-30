@@ -1,0 +1,299 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.3s;
+    border: none;
+    outline: none;
+}
+
+
+
+
+:root{
+    --red: #ff004f;
+}
+
+*::selection{
+    background: var(--red);
+    color: #fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+section{
+    padding: 2rem 8%;
+}
+
+/*-----------Header---------Section-----------Start-----------*/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 2rem 9%;
+    box-shadow: 0.5rem 1rem  #2e2d2d1a;
+    z-index: 1000;
+}
+
+header .logo{
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #25a244;
+    text-decoration: none;
+}
+
+header .logo i{
+    padding: .5rem;
+    color: var(--red);
+}
+
+header .navbar a{
+    font-size: 2rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    margin-left: 2rem;
+    color: #25a244;
+    text-decoration: none;
+    transition: 0l.2s;
+}
+
+header .navbar a:hover{
+    color: var(--red);
+}
+
+#menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color: #666;
+    border: .1rem solid #666;
+    border-radius: .3rem;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
+.heading{
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: sans-serif;
+    padding: 4rem;
+    color: #25a244;
+}
+
+.heading span{
+    color: #ff004f;  
+}
+/*-----------Header---------Section-----------End-----------*/
+
+
+/*-----------Home---------Section-----------Start-----------*/
+.Home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    min-height: 100vh;
+    align-items: center;    
+    background: #f4faff;
+}
+
+.Home .content{
+    flex: 1 1 40rem;
+    padding-top: 6.5rem;
+}
+
+.Home .image{
+    flex: 1 1 50rem;  
+}
+
+.Home .content h3{
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #25a244;
+}
+
+.Home .content h3 span{
+    color: #ff004f;
+    font-family: none;
+}
+
+.Home .content h1{
+    font-size: 5rem;
+    font-style: italic;
+    font-weight: 700;
+    font-family: sans-serif;
+    color: #25a244;  
+}
+.Home .content h1 span{
+    color: #ff004f;
+    font-family: none;
+    font-size: 5rem;
+    font-family: sans-serif;
+}
+
+.Home .content p{
+    font-size: 1.9rem;
+    font-family: sans-serif;
+    font-weight: 500;
+    padding: 1rem 0;
+}
+
+.earth{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: #0588e4 url(Img/Earth.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s; 
+    animation: animate 12s linear infinite;
+}
+
+
+/* .earth:hover{
+    transform: scale(5);
+    overflow: hidden;
+} */
+
+.earth:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    background: url(Img/Earth.jpg);
+    background-size: cover;
+    animation: animate 18s linear infinite;
+    z-index: 1;
+}
+
+.earth img{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
+    transition: 0.5s; 
+    pointer-events: none;
+}
+
+@keyframes animate{
+    0%{
+        background-position: 0 0;
+    }
+
+    100%{
+        background-position: 719px 0;
+    }
+}
+/*-----------Home---------Section-----------End-----------*/
+
+
+.About{
+    width: 100%;
+    height: 100vh;
+    background-image: url(Img/Earth.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 3;
+}
+
+
+
+/*--------Mediea---------Screen--------Responsive---------Start--------*/
+/*-------Navebar-------Responsive--------Start-------*/
+@media screen and (max-width: 1100px){
+    html{
+        font-size: 55%;
+    } 
+    
+    header{
+        padding: 2rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+    
+}
+
+
+@media screen and (max-width: 900px){
+    #menu-bar{
+       display: initial;
+    }
+
+    .fa-times{
+        transform: rotate(360deg);
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #f7f7f7;
+        border-top: .4rem solid #ff004f;
+
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    
+    }
+
+    header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); 
+    }
+
+    header .navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        display: block;
+        border: .2rem solid rgba(0,0,0.1);
+        border-left: .5rem solid var(--red);
+        border-right: .5rem solid #25a244;
+        background: #fff;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .Home .content h3{
+        font-size: 4rem;
+        text-align: center;
+    }
+    
+    .Home .content p{
+     text-align: center;
+     font-size: 2rem;
+     font-weight: 600;
+    }
+
+    .Home .content .btn{
+      margin-left: 25%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    html{
+        font-size: 50%;
+    }
+    .Contact .row form .inputBox input{
+        width: 100%;
+    }
+}
+/*-------Navebar-------Responsive---------End--------*/
